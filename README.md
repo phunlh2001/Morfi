@@ -1,176 +1,196 @@
-# ⚡ Morfi — Universal Developer File Converter
+# ⚡ Morfi — User & Feature Guide
 
-<div align="center">
-
-**100% Private, In-Browser File Transformation Studio for Developers**
-
-[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
-[![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Security](https://img.shields.io/badge/Privacy-100%25%20Client--Side-10B981?logo=shield&logoColor=white)](#-privacy--security-first)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
-[**Live Demo**](https://github.com/phunlh2001/Morfi) • [**Features**](#-features) • [**Getting Started**](#-getting-started) • [**Tech Stack**](#-tech-stack)
-
-</div>
+> **Morfi** is a 100% private, in-browser file transformation studio for developers and power users. No files ever leave your device—everything processes instantly in your local browser memory.
 
 ---
 
-## 🌟 What is Morfi?
+## 🚀 Quick Start: Convert Any File in 3 Steps
 
-**Morfi** is a modern, high-performance web application designed specifically for developers, analysts, and power users who need to convert documents, spreadsheets, slides, logs, and binary byte streams rapidly—without ever sending confidential files to third-party servers.
-
-All conversions run **100% locally in your web browser** utilizing modern Web APIs, Web Workers, and lightweight client-side engines.
-
----
-
-## ✨ Key Highlights
-
-- 🔒 **100% Private & Secure**: Zero cloud uploads. Your files never touch an external server or leave your local device.
-- ⚡ **Instant Processing**: Powered by local memory processing and Web Workers for zero-latency conversions.
-- 🔄 **Bi-Directional by Design**: Every tool supports 1-click direction swapping (`A → B` ⇄ `B → A`).
-- 🎨 **Modern Aesthetics**: Built with Tailwind CSS v4 and shadcn-ui, featuring glassmorphism cards, vibrant format-specific gradients, and an interactive HTML5 Canvas logo.
-- 🌓 **Light & Dark Themes**: Cohesive theme system with Light mode as default and instant persistence in `localStorage`.
-- 📁 **Intuitive Drag & Drop**: Visual dropzones with animated feedback, file validation, progress bars, and live previews.
+1. **Select a Converter Studio**: Choose your format pair from the left sidebar or the Feature Showcase.
+2. **Choose Direction & Add File**: 
+   - Click the swap button (`⇄`) if you want the reverse direction (e.g., switch from `DOCX → PDF` to `PDF → DOCX`).
+   - Drag and drop your file into the dashed dropzone (or click to browse).
+3. **Convert & Download**:
+   - Adjust any format settings (delimiters, hex dump styles, image resolution).
+   - Click **Convert Now**.
+   - Inspect the **Live Preview**, **Copy Text** to clipboard, or click **Download**.
 
 ---
 
-## 🛠️ The 9 Bi-Directional Converter Studios
+## 🧭 Interface & Navigation Tour
 
-| Studio | Direction 1 | Direction 2 | Highlight Features |
-|:---|:---|:---|:---|
-| **DOCX ↔ PDF** | `DOCX → PDF` | `PDF → DOCX` | Preserves typography and headings; exports editable `.docx` paragraphs or print-ready PDF. |
-| **TXT ↔ CSV** | `TXT → CSV` | `CSV → TXT` | Smart auto-delimiter detection (comma, tab, semicolon, pipe) and formatted ASCII grid table export. |
-| **PDF ↔ PPTX** | `PDF → PPTX` | `PPTX → PDF` | Converts PDF pages into 16:9 widescreen PowerPoint slides; parses PPTX slide visuals into PDF. |
-| **PDF ↔ Excel** | `PDF → Excel` | `Excel → PDF` | Extracts tabular coordinate text to multi-sheet `.xlsx`; formats spreadsheet data into landscape PDF reports. |
-| **HTML ↔ PDF** | `HTML → PDF` | `PDF → HTML` | Renders HTML with CSS styles to vector PDF; extracts structured semantic HTML5 from PDF. |
-| **PDF ↔ Markdown** | `PDF → MD` | `MD → PDF` | Detects titles, headings, bullet lists, and code blocks to GitHub Markdown (GFM) and vice versa. |
-| **DOCX ↔ HTML** | `DOCX → HTML` | `HTML → DOCX` | Extracts Word styles and embedded images to clean semantic HTML; packages web content into `.docx`. |
-| **PDF/HTML ↔ Hex Bytes** | `Doc → Hex (.txt)` | `Hex (.txt) → Doc` | Formats binary data as `xxd`-style dumps, C byte arrays, or raw hex; reconstructs valid binary `.pdf`/`.html`. |
-| **PDF ↔ JPG** | `PDF → JPG` | `JPG → PDF` | High-DPI canvas page rendering with single or ZIP archive export; merges multiple images into a multi-page PDF. |
+### 1. Left Sidebar
+- **Feature Showcase**: The home dashboard providing an overview of all 9 converter studios.
+- **Search Bar**: Quickly type any extension (`csv`, `pdf`, `hex`, `word`) or keyword to filter tools instantly.
+- **Color-Coded Tool Tabs**: Direct one-click access to each specialized studio with format status badges.
+- **Collapse Toggle (`◀ / ▶`)**: Collapse the sidebar to maximize workspace on smaller screens.
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Ensure you have installed:
-- [Node.js](https://nodejs.org/) (v18.0 or higher recommended)
-- [Yarn](https://yarnpkg.com/) (or npm / pnpm)
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone git@github.com:phunlh2001/Morfi.git
-   cd Morfi
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   yarn install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   yarn dev
-   ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser.
+### 2. Header Bar
+- **Breadcrumbs**: Shows current location and quick link back to the Showcase.
+- **Theme Switcher (`☀ / ☾`)**: One-click toggle between **Light Mode** (default) and **Dark Mode** (saved automatically to your browser).
+- **Offline Ready Indicator**: Verifies that conversion engines run fully local with zero network latency.
 
 ---
 
-## 📦 Available Scripts
+## 🎛️ How the Universal Converter Component Works
 
-In the project directory, you can run:
-
-| Command | Description |
-|:---|:---|
-| `yarn dev` | Starts the Vite local development server with Hot Module Replacement (HMR). |
-| `yarn build` | Type-checks with `tsc` and builds the production-optimized bundle in `dist/`. |
-| `yarn lint` | Runs ESLint to check for code quality and syntax compliance. |
-| `yarn preview` | Locally previews the production build output. |
-
----
-
-## 🏗️ Project Architecture
+Every converter page shares a consistent, intuitive workspace:
 
 ```
-Morfi/
-├── public/                 # Static assets and icons
-├── src/
-│   ├── assets/             # Branding and SVG graphics
-│   ├── components/
-│   │   ├── common/         # Core reusable components
-│   │   │   ├── MorfiLogo.tsx          # HTML5 Canvas logo component
-│   │   │   ├── Sidebar.tsx            # Collapsible colorful navigation
-│   │   │   ├── ThemeToggle.tsx        # Light/Dark mode switcher
-│   │   │   └── UniversalConverter.tsx # Reusable converter shell with drag & drop
-│   │   ├── pages/
-│   │   │   └── HomeShowcase.tsx       # Feature hub and studio grid
-│   │   └── ui/             # shadcn-ui primitives (Button, Card, Badge, Progress, Tabs)
-│   ├── data/
-│   │   └── converterConfigs.ts        # Configuration metadata for all 9 studios
-│   ├── lib/
-│   │   └── utils.ts        # Tailwind class merging utility (cn)
-│   ├── types/
-│   │   └── converter.ts    # TypeScript interfaces and type contracts
-│   ├── utils/
-│   │   ├── conversionDispatcher.ts    # Central execution dispatcher
-│   │   ├── pdfHelper.ts               # PDF.js worker setup & canvas rendering
-│   │   └── converters/                # Modular client-side conversion engines
-│   │       ├── docxHtml.ts            # Mammoth + docx packager
-│   │       ├── docxPdf.ts             # DOCX ↔ PDF rendering
-│   │       ├── hexBytes.ts            # Binary ↔ Hex dump engine
-│   │       ├── htmlPdf.ts             # HTML ↔ PDF canvas engine
-│   │       ├── pdfExcel.ts            # PDF ↔ SheetJS XLSX engine
-│   │       ├── pdfJpg.ts              # PDF ↔ JPG canvas & ZIP engine
-│   │       ├── pdfMarkdown.ts         # PDF ↔ GFM Markdown engine
-│   │       ├── pdfPptx.ts             # PDF ↔ PptxGenJS engine
-│   │       └── txtCsv.ts              # TXT ↔ CSV smart delimiter engine
-│   ├── App.tsx             # Root application shell and theme state
-│   ├── index.css           # Tailwind CSS v4 tokens and theme variables
-│   └── main.tsx            # React application entry point
-├── index.html              # HTML document template
-├── package.json            # Project manifest and dependencies
-├── tsconfig.json           # TypeScript configuration
-└── vite.config.ts          # Vite build and Tailwind plugin configuration
+┌───────────────────────────────────────────────────────────────┐
+│ [Format Badge]                          [ A → B ⇄ B → A ]     │
+│ Studio Title & Description              (1-Click Direction)   │
+├───────────────────────────────────────────────────────────────┤
+│ ⚙️ Conversion Settings (Delimiters, DPI, Output Styles)       │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│       ☁️  Drop your file here, or browse                     │
+│           (Drag-over glowing feedback)                        │
+│                                                               │
+├───────────────────────────────────────────────────────────────┤
+│ 📄 filename.ext  (Size: 240 KB)            [Remove] [Convert] │
+├───────────────────────────────────────────────────────────────┤
+│ ═══ Progress Bar (100%) ═════════════════════════════════════ │
+├───────────────────────────────────────────────────────────────┤
+│ ✅ Ready: output_file.ext (210 KB)   [Copy Text] [Download]   │
+│ 👁️ Live Preview (Gallery, HTML render, Code / Text Viewer)    │
+└───────────────────────────────────────────────────────────────┘
 ```
 
----
-
-## 💻 Tech Stack
-
-- **Core Framework**: [React 19](https://react.dev/) & [TypeScript](https://www.typescriptlang.org/)
-- **Bundler & Build Tool**: [Vite 8](https://vite.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with `@tailwindcss/vite`
-- **UI Components**: [shadcn-ui](https://ui.shadcn.com/) patterns with `class-variance-authority`, `clsx`, and `tailwind-merge`
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Conversion Libraries**:
-  - `pdfjs-dist`: High-performance PDF rendering and text parsing
-  - `jspdf` & `html2canvas`: In-browser PDF generation and vector rendering
-  - `mammoth`: Microsoft Word `.docx` parsing and HTML extraction
-  - `docx`: Word `.docx` document generation
-  - `xlsx`: SheetJS for Excel workbook reading and writing
-  - `pptxgenjs`: Microsoft PowerPoint `.pptx` presentation generation
-  - `jszip`: In-memory ZIP compression for multi-page image exports
-  - `marked`: Fast Markdown parsing
+1. **Direction Swap Button (`⇄`)**: Click the swap button in the top-right of the card to reverse the conversion direction at any time without leaving the page.
+2. **Smart Drag-and-Drop**: Drag any accepted file over the dropzone. The border pulses with glowing feedback when ready to accept.
+3. **Selected File Strip**: Displays the file name, size in KB/MB, and file type badge with a quick `Remove` button to reset.
+4. **Live Progress**: A real-time progress bar tracks in-memory conversion stages.
+5. **Result Actions**:
+   - **Download**: Saves the converted file with the correct extension to your computer.
+   - **Copy Text**: Copies text, markdown, HTML, or hex dumps directly to your clipboard in 1 click.
+   - **Live Preview Drawer**: Expand or collapse to inspect rendered pages, code, or tables before saving.
 
 ---
 
-## 🛡️ Privacy & Security First
-
-Most online file converters upload your sensitive files to remote servers, exposing private credentials, financial reports, or internal codebases.
-
-**Morfi guarantees total privacy:**
-1. All file parsing and conversion occurs in your browser's V8 JavaScript engine.
-2. No telemetry, tracking, or network requests are made with your file data.
-3. Completely safe for NDAs, confidential contracts, API keys, and personal documents.
-4. Operates offline once the application is loaded.
+## 📚 Complete Feature Guide (All 9 Studios)
 
 ---
 
-## 📄 License
+### 1. DOCX ↔ PDF
+*Convert between Microsoft Word documents and print-ready PDFs.*
 
-This project is licensed under the [MIT License](LICENSE).
+- **DOCX → PDF**:
+  - **How to use**: Upload any `.docx` file. The engine parses styles, headings, tables, and typography, compiling them into a print-ready vector PDF.
+  - **Best for**: Creating finalized resumes, contracts, invoices, and reports that look identical on any device.
+- **PDF → DOCX**:
+  - **How to use**: Swap direction to `PDF → DOCX`, drop your PDF, and click Convert. The engine extracts paragraphs, titles, and layout structure into an editable Word document.
+  - **Best for**: Reclaiming editable content from archived PDFs.
+
+---
+
+### 2. TXT ↔ CSV
+*Transform text logs, delimited streams, and spreadsheets.*
+
+- **TXT → CSV**:
+  - **Smart Delimiter Detection**: Choose **Auto Detect** (detects tabs, commas, semicolons, or pipes) or manually pick a specific delimiter.
+  - **Whitespace / Space Log Parser**: Select **Whitespace** mode to convert server log files and space-aligned terminal dumps into clean spreadsheet columns.
+- **CSV → TXT**:
+  - **Output Styles**:
+    - **ASCII Grid Table**: Generates a formatted ASCII box table (`+---+---+`) ready to paste into GitHub issues or READMEs.
+    - **Tab Delimited (TSV)**: Produces clean tab-separated records.
+    - **Key-Value Records**: Formats each row into readable labeled blocks (`Field: Value`).
+
+---
+
+### 3. PDF ↔ PPTX
+*Slide deck transformation between PDFs and editable PowerPoint presentations.*
+
+- **PDF → PPTX**:
+  - **How to use**: Drop your PDF slides. The engine renders each page into a high-definition slide inside a native 16:9 widescreen `.pptx` presentation.
+  - **Compatibility**: Opens cleanly in Microsoft PowerPoint, Google Slides, and Apple Keynote.
+- **PPTX → PDF**:
+  - **How to use**: Swap direction to `PPTX → PDF`. Morfi unpacks presentation slide structures and renders them into a unified PDF document.
+
+---
+
+### 4. PDF ↔ Excel
+*Extract tabular financial reports or render spreadsheets to PDF.*
+
+- **PDF → Excel**:
+  - **Coordinate Text Mapping**: Automatically groups table rows and columns based on vertical and horizontal coordinates on each PDF page.
+  - **Multi-Page Workbooks**: Multi-page documents automatically create separate sheet tabs (`Page_1`, `Page_2`, etc.) in the generated `.xlsx` workbook.
+- **Excel → PDF**:
+  - **How to use**: Upload any `.xlsx` or `.xls` spreadsheet. Morfi formats the data into a professional landscape PDF with zebra-striped tables.
+
+---
+
+### 5. HTML ↔ PDF
+*Render web pages with full CSS styling or extract semantic HTML from documents.*
+
+- **HTML → PDF**:
+  - **How to use**: Upload an `.html` file. The engine renders the content in a sandboxed DOM canvas and outputs multi-page A4 PDFs with preserved fonts, layouts, and colors.
+- **PDF → HTML**:
+  - **How to use**: Extracts text blocks, headings (`<h1>`, `<h2>`), paragraphs, and document structure into a clean, standalone, responsive HTML5 document.
+
+---
+
+### 6. PDF ↔ Markdown
+*Bridge the gap between document files and developer documentation.*
+
+- **PDF → Markdown**:
+  - **Heading Recognition**: Analyzes font sizes to automatically output `# Title`, `## Heading`, and `### Subheading`.
+  - **List Detection**: Recognizes bullet points (`•`, `-`, `*`) and formats them into GitHub Flavored Markdown (GFM) lists.
+- **Markdown → PDF**:
+  - **How to use**: Drop your `.md` file. Morfi compiles the Markdown, styles code blocks, blockquotes, and tables, and exports a clean developer PDF.
+
+---
+
+### 7. DOCX ↔ HTML
+*Convert Word documents to web markup and vice versa.*
+
+- **DOCX → HTML**:
+  - **Embedded Images**: Embedded Word graphics are automatically extracted and encoded as inline base64 images inside clean HTML.
+  - **Clean Markup**: Produces clean semantic tags (`<p>`, `<h1>`, `<table>`) without bloated Microsoft office XML junk.
+- **HTML → DOCX**:
+  - **How to use**: Transforms web content, headings, and bulleted lists into a standard downloadable Word `.docx` file.
+
+---
+
+### 8. PDF/HTML ↔ Hex Bytes (.txt)
+*Low-level binary inspection and reconstruction tool for developers.*
+
+- **PDF/HTML → Hex Bytes**:
+  - **Formatting Modes**:
+    - **Standard Hex Dump**: Classic `xxd` / `hexdump` format displaying offset, 16 hex bytes, and ASCII representation (`00000000: 25 50 44 46 ... |%PDF|`).
+    - **Programming Array**: Outputs a ready-to-copy C / C++ / Rust / Go / JS byte array (`const unsigned char file_data[] = { 0x25, ... };`).
+    - **Space-Separated**: Clean space-delimited byte stream (`25 50 44 46 ...`).
+    - **Raw Hex**: Continuous hexadecimal string.
+  - **Output**: Downloadable as a `.txt` file or copied to clipboard.
+- **Hex Bytes (.txt) → PDF/HTML**:
+  - **Reconstruction**: Reads any text file containing hex values (automatically stripping line offsets, comments, and ASCII sidebars) and rebuilds the original `.pdf` or `.html` binary file.
+
+---
+
+### 9. PDF ↔ JPG
+*Convert document pages to high-resolution images or combine images into a PDF.*
+
+- **PDF → JPG**:
+  - **Resolution Scaling**: Choose between **Standard (1.5x)**, **High Quality (2x Retina)**, or **Ultra HD (3x Print)**.
+  - **Automatic ZIP Packaging**: Multi-page PDFs automatically package all rendered page images into a single `.zip` archive for one-click downloading.
+  - **Image Gallery**: View full-size thumbnails of every page directly in the browser.
+- **JPG → PDF**:
+  - **Multi-Image Upload**: Select or drag multiple JPG/PNG images at once. Morfi automatically arranges and compiles them into a unified multi-page PDF document.
+
+---
+
+## 🔒 Privacy & Offline Operation
+
+### Why Morfi is Safe for Confidential Documents
+- **Zero Server Uploads**: Traditional converter websites send your documents to unknown remote servers. Morfi performs 100% of its computation in your local browser's memory using WebAssembly and client-side JavaScript.
+- **No Size or Throttle Limits**: Since no files are sent across a network, conversion speed is instantaneous and limited only by your computer's RAM.
+- **Safe for Sensitive Data**: Ideal for proprietary source code, NDA agreements, banking statements, and confidential employee records.
+- **Offline Compatible**: Once the page is loaded, you can disconnect from the internet and continue converting files without interruption.
+
+---
+
+## 💡 Pro Tips
+
+- ⚡ **Quick Copy**: For text-based formats (CSV, Markdown, HTML, Hex), use the **Copy Text** button to paste directly into your IDE or terminal without opening downloaded files.
+- 🔁 **Instant Direction Swap**: Click the `⇄` button to switch between formats without having to re-select tools from the sidebar.
+- 🌙 **Eye Comfort**: Use the theme toggle in the top-right corner to switch to Dark Mode during late-night coding sessions.
